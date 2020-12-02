@@ -19,8 +19,8 @@ static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char col_y1[]          = "#bf616a";
 static const char col_y2[]          = "#02143f"; /* #fea63c */
-static const unsigned int baralpha = 0xd0;
-static const unsigned int borderalpha = OPAQUE;
+static const unsigned int baralpha = 0.8;
+static const unsigned int borderalpha = 0.8;
 
 static const char *colors[][13]      = {
 	/*               fg         bg         border   */
@@ -111,11 +111,11 @@ static const char *ipr[] = { "dwmexit", "reboot", NULL };
 static const char *iph[] = { "dwmexit", "shutdown", NULL };
 static const char *ipl[] = { "dwmexit", "lock", NULL };
 static const char *pmenu[] = { "powermenu", NULL };
-static const char *upvol[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *mutevol[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *brdec[] = { "brightnessctl", "s", "5%-", NULL };
-static const char *brinc[] = { "brightnessctl", "s", "+5%", NULL };
+static const char *upvol[] = { "volkeys", "up", NULL };
+static const char *downvol[] = { "volkeys", "down", NULL };
+static const char *mutevol[] = { "volkeys", "mute", NULL };
+static const char *brinc[] = { "blkeys", "up", NULL };
+static const char *brdec[] = { "blkeys", "down", NULL };
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 /* static const char *rbang[] = { "rbang", NULL }; */
