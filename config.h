@@ -189,7 +189,7 @@ static Key keys[] = {
 	{ ShiftMask,                    XK_KP_Insert,      spawn,          CMD("clipmenu") }, 
     { 0,                     XF86XK_MonBrightnessUp,   spawn,          {.v = brinc } },
     { 0,                     XF86XK_MonBrightnessDown, spawn,          {.v = brdec } },
-	{ 0,                            XF86XK_Calculator, spawn,          CMD("= -p dmenu -l 3 -c") }, /* menu-calc script */
+	{ 0,                            XF86XK_Calculator, spawn,          CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
     { 0,                     XF86XK_AudioLowerVolume,  spawn,          {.v = downvol } },
     { 0,                     XF86XK_AudioMute,         spawn,          {.v = mutevol } },
     { 0,                     XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol   } },
