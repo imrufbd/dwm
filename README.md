@@ -16,11 +16,8 @@ Mod Key
 
     Mod1, i.e Alt
     
-    
-Additional Mod Key
----
-
-    Mod4, i.e Super
+    - Additional Mod Key
+        -Mod4, i.e Super
     
     
 Dwm Bindings
