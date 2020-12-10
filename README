@@ -1,6 +1,7 @@
 ---
 # dwm - dynamic window manager
 ---
+
 ## dwm is an extremely fast, small, and dynamic window manager for X.
 
 ---
@@ -11,17 +12,27 @@
 ##### Key Bindings
 ---
 
+---
 ##### Mod Key
+---
+
     Mod1, i.e Alt
     
+---
 ##### Additional Mod Key
+---
+
     Mod4, i.e Super
 
+---
 ##### Dwm Bindings
+---
 
 - Bar toggle:             Alt+b
 
+---
 ##### Window
+---
 
 - Kill Window:            Alt+y
  
@@ -47,7 +58,10 @@
                          
 - Zoom/NxtMaster:         Alt+Enter
 
+---
 ##### Tag
+---
+
 - Switch Tag:             Alt+[1-0]
 - Switch Last Tag:
   - Alt+Tab
@@ -64,7 +78,10 @@
     - Tag Current To All:
         - Alt+Shift+0
 
+---
 ##### Layouts
+---
+
 - Tile:                   Alt+t
 - Tile(Bstack):           Alt+Shift+t
 - Float:                  Alt+f
@@ -74,14 +91,17 @@
 - Move Float:             Alt+Mouse_Left
 - Resize Float:           Alt+Mouse_Right
 
-##### Power
-- Exit dwm:               Alt+Shift+e
-- Suspend:                Alt+Shift+s
-- Shutdown:               Alt+Shift+h
-- Reboot:                 Alt+Shift+r
-- Lock:                   Alt+Shift+l
-
+---
 ##### System
+---
+
+- Power
+    - Exit dwm:               Alt+Shift+e
+    - Suspend:                Alt+Shift+s
+    - Shutdown:               Alt+Shift+h
+    - Reboot:                 Alt+Shift+r
+    - Lock:                   Alt+Shift+l
+
 - Brightness
     - Inc:                 Fn+BrightnessUp
     - Dec:                 Fn+BrightnessDown
@@ -91,7 +111,9 @@
     - Dec:                 Fn+VolumeDown
     - Mute:                Fn+Mute
     
+---
 ##### App Bindings
+---
 
 - Terminal:               Alt+/
 
@@ -103,8 +125,9 @@
     - dmenu:              Alt+;
     - dbang:              Super+;
     - dweb:               Alt+p
+    - dssr:               Super+p
     - calc:               Fn+Keypad_Enter
-    - powermenu:          Alt+Shift+x4
+    - powermenu:          Alt+Shift+x
     - clipmenu:           Shift+Insert
 
 - Files
