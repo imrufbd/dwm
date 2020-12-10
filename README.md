@@ -1,25 +1,31 @@
-# dwm - dynamic window manager
-## dwm is an extremely fast, small, and dynamic window manager for X.
+---
+dwm - dynamic window manager
+---
+ dwm is an extremely fast, small, and dynamic window manager for X.
 
 ---
 Config And Setups Of This Build Of DWM
 ---
 
-##### Key Bindings
+---
+Key Bindings
+---
 
-##### Mod Key
+* Mod Key
 
     Mod1, i.e Alt
     
-##### Additional Mod Key
+* Additional Mod Key
 
     Mod4, i.e Super
 
-##### Dwm Bindings
+---
+Dwm Bindings
+---
 
 - Bar toggle:             Alt+b
 
-##### Window
+* Window
 
 - Kill Window:            Alt+y
  
@@ -45,7 +51,7 @@ Config And Setups Of This Build Of DWM
                          
 - Zoom/NxtMaster:         Alt+Enter
 
-##### Tag
+* Tag
 
 - Switch Tag:             Alt+[1-0]
 - Switch Last Tag:
@@ -63,7 +69,7 @@ Config And Setups Of This Build Of DWM
     - Tag Current To All:
         - Alt+Shift+0
 
-##### Layouts
+* Layouts
 
 - Tile:                   Alt+t
 - Tile(Bstack):           Alt+Shift+t
@@ -74,8 +80,7 @@ Config And Setups Of This Build Of DWM
 - Move Float:             Alt+Mouse_Left
 - Resize Float:           Alt+Mouse_Right
 
-##### System
----
+* System
 
 - Power
     - Exit dwm:               Alt+Shift+e
@@ -94,7 +99,7 @@ Config And Setups Of This Build Of DWM
     - Mute:                Fn+Mute
     
 ---
-##### App Bindings
+App Bindings
 ---
 
 - Terminal:               Alt+/
