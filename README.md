@@ -16,34 +16,34 @@ Mod Key
 
     Mod1, i.e Alt
     
-    - Additional Mod Key
+    * Additional Mod Key
         -Mod4, i.e Super
     
     
 Dwm Bindings
 ---
 
-    - Bar toggle:             Alt+b
+    * Bar toggle:             Alt+b
 
 
 Window
 ---
 
-    - Kill Window:            Alt+y
+    * Kill Window:            Alt+y
  
-    - Window Focus
+    * Window Focus
         - Up:                 Alt+k
         - Down:               Alt+j
 
-    - Manage Window Size
+    * Manage Window Size
         - Left/Right:         Alt+h/Alt+l
         - Inc/Dec:            Alt+h/Alt+l
         
-    - Master/Stack
+    * Master/Stack
         - Inc:                Alt+Shift+i
         - Dec:                Atl+Shift+d
         
-    - Move Stack
+    * Move Stack
         - Up:
            - Alt+Shift+k
            - Super+k
@@ -51,13 +51,13 @@ Window
            - Alt+Shift+j
            - Super+j
                              
-    - Zoom/NxtMaster:         Alt+Enter
+    * Zoom/NxtMaster:         Alt+Enter
 
 Tag
 ---
 
-    - Switch Tag:             Alt+[1-0]
-    - Switch Last Tag:
+    * Switch Tag:             Alt+[1-0]
+    * Switch Last Tag:
       - Alt+Tab
       - Control+Space
      
