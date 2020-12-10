@@ -15,8 +15,7 @@ Mod Key
 ---
 
     Mod1, i.e Alt
-    
-    Mod2: Mod4, i.e Super
+    Mod4, i.e Super
     
     
 Dwm Bindings
@@ -30,19 +29,19 @@ Window
 
     Kill Window:            Alt+y
  
-    Window Focus
+    Window Focus:
       - Up:                 Alt+k
       - Down:               Alt+j
 
-    Manage Window Size
+    Manage Window Size:
       - Left/Right:         Alt+h/Alt+l
       - Inc/Dec:            Alt+h/Alt+l
       
-    Master/Stack
+    Master/Stack:
       - Inc:                Alt+Shift+i
       - Dec:                Atl+Shift+d
       
-    Move Stack
+    Move Stack:
       - Up:
          - Alt+Shift+k
          - Super+k
@@ -64,12 +63,9 @@ Tag
     Previous Tag:           Alt+Control+h
     
     Manage Tag:
-    Tag Another To Current:
-      - Alt+Control+Tag Number
-    View All Tag And And Open Windows:
-      - Alt+0
-    Tag Current To All:
-        - Alt+Shift+0
+        - Tag Another To Current:                 Alt+Control+Tag Number
+        - View All Tag And And Open Windows:      Alt+0
+        - Tag Current To All:                     Alt+Shift+0
 
 Layouts
 ---
@@ -86,18 +82,18 @@ Layouts
 System
 ---
 
-    Power
+    Power:
       - Exit dwm:               Alt+Shift+e
       - Suspend:                Alt+Shift+s
       - Shutdown:               Alt+Shift+h
       - Reboot:                 Alt+Shift+r
       - Lock:                   Alt+Shift+l
     
-    Brightness
+    Brightness:
       - Inc:                 Fn+BrightnessUp
       - Dec:                 Fn+BrightnessDown
     
-    Volume
+    Volume:
       - Inc:                 Fn+VolumeUp
       - Dec:                 Fn+VolumeDown
       - Mute:                Fn+Mute
@@ -109,10 +105,10 @@ App Bindings
     Terminal:               Alt+/
     
     Scratchpad:
-        - dropdown            Super+/
-        - gnote               Super+n
+        - dropdown:            Super+/
+        - gnote:               Super+n
 
-    dmenu 
+    dmenu: 
       - dmenu:              Alt+;
       - dbang:              Super+;
       - dweb:               Alt+p
@@ -121,12 +117,12 @@ App Bindings
       - powermenu:          Alt+Shift+x
       - clipmenu:           Shift+Insert
     
-    Files
+    Files:
       - nnn:                Alt+o
       - lf:                 Super+o
       - pcmanfm:            Alt+Shift+o
     
-    Browser
+    Browser:
       - qutebrowsr:         Alt+i
       - firefox:            Super+i
       - elinks:             Alt+n
