@@ -7,7 +7,7 @@ static const unsigned int snap      = 22;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "UbuntuMono Nerd Font:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "monospace:size=10:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static const char col_gray1[]       = "#011111"; /* border color #073642 #222222*/
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -106,6 +106,7 @@ static const char *bcmd2[] = { "firefox", NULL };
 static const char *bcmd3[] = { "st", "-e", "elinks", NULL };
 static const char *dbang[] = { "dbang", NULL };
 static const char *dweb[] = { "dweb", NULL };
+static const char *dssr[] = { "dssr", NULL };
 static const char *ips[] = { "dwmexit", "suspend", NULL };
 static const char *ipr[] = { "dwmexit", "reboot", NULL };
 static const char *iph[] = { "dwmexit", "shutdown", NULL };
@@ -137,6 +138,7 @@ static Key keys[] = {
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
 	{ MODKEY,                       XK_n,             spawn,          {.v = bcmd3 } },
 	{ MODKEY,                       XK_p,             spawn,          {.v = dweb } },
+	{ MOD2,                         XK_p,             spawn,          {.v = dssr } },
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
