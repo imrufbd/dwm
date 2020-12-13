@@ -8,6 +8,7 @@ Keys
 
 Mod
 ---
+
  Mod1, i.e Alt
  Mod4, i.e Super
  
@@ -15,6 +16,7 @@ Mod
 
 Window
 ---
+
  Kill Window:                                Alt+y
 
  Window Focus:
