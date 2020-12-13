@@ -9,8 +9,8 @@ Keys
 Mod
 ---
 
-    Mod1, i.e Alt (Default Mod)
-    Mod4, i.e Super  (Additional Mod)
+    Default Mod Key:                         Alt (Mod1)
+    Additional Mod Key:                      Super (Mod4)
  
 Bar
 ---
