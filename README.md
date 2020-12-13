@@ -9,9 +9,12 @@ Keys
 Mod
 ---
 
-    Mod1, i.e Alt
-    Mod4, i.e Super
+    Mod1, i.e Alt (Default Mod)
+    Mod4, i.e Super  (Additional Mod)
  
+Bar
+---
+
     Bar toggle:                                 Alt+b
 
 Window
