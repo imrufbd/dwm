@@ -15,7 +15,7 @@ Mod
 Bar
 ---
 
-    Bar toggle:                                 Alt+b
+    Bar toggle:                              Alt+b
 
 Window
 ---
