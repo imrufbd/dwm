@@ -2,62 +2,49 @@ dwm - dynamic window manager
 ---
  dwm is an extremely fast, small, and dynamic window manager for X.
  
+Keys
+---
+ This Build of dwm is set to-
+
+Mod
+---
+ Mod1, i.e Alt
+ Mod4, i.e Super
  
-In This Build Of-dwm
----
-
-
-Key Bindings
----
-
-
-Mod Key
----
-
-    Mod1, i.e Alt
-    Mod4, i.e Super
-    
-    
-Dwm Bindings
----
-
-    Bar toggle:                              Alt+b
-
+ Bar toggle:                                 Alt+b
 
 Window
 ---
+ Kill Window:                                Alt+y
 
-    Kill Window:                             Alt+y
- 
-    Window Focus:
-      - Up:                                  Alt+k
-      - Down:                                Alt+j
+ Window Focus:
+   - Up:                                     Alt+k
+   - Down:                                   Alt+j
 
-    Manage Window Size:
-      - Left/Right:                          Alt+h/Alt+l
-      - Inc/Dec:                             Alt+h/Alt+l
-      
-    Master/Stack:
-      - Inc:                                 Alt+Shift+i
-      - Dec:                                 Atl+Shift+d
-      
-    Move Stack:
-      - Up:
-         - Alt+Shift+k
-         - Super+k
-      - Down:
-         - Alt+Shift+j
-         - Super+j
-                           
-    Zoom/NxtMaster:                          Alt+Enter
+ Manage Window Size:
+   - Left/Right:                             Alt+h/Alt+l
+   - Inc/Dec:                                Alt+h/Alt+l
+   
+ Master/Stack:
+   - Inc:                                    Alt+Shift+i
+   - Dec:                                    Atl+Shift+d
+   
+ Move Stack:
+   - Up:                                     Alt+Shift+k
+                                             Super+k
+                                             
+   - Down:                                   Alt+Shift+j
+                                             Super+j
+                        
+ Zoom/NxtMaster:                             Alt+Enter
 
 Tag
 ---
 
     Switch Tag:                              Alt+[1-0]
-    Switch Last Tag:
-      - Alt+Tab
-      - Control+Space
+    
+    Switch Last Tag:                         Alt+Tab
+                                             Control+Space
      
     Next Tag:                                Alt+Control+l
     Previous Tag:                            Alt+Control+h
