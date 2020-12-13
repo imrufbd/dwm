@@ -9,36 +9,36 @@ Keys
 Mod
 ---
 
- Mod1, i.e Alt
- Mod4, i.e Super
+    Mod1, i.e Alt
+    Mod4, i.e Super
  
- Bar toggle:                                 Alt+b
+    Bar toggle:                                 Alt+b
 
 Window
 ---
 
- Kill Window:                                Alt+y
-
- Window Focus:
-   - Up:                                     Alt+k
-   - Down:                                   Alt+j
-
- Manage Window Size:
-   - Left/Right:                             Alt+h/Alt+l
-   - Inc/Dec:                                Alt+h/Alt+l
-   
- Master/Stack:
-   - Inc:                                    Alt+Shift+i
-   - Dec:                                    Atl+Shift+d
-   
- Move Stack:
-   - Up:                                     Alt+Shift+k
+    Kill Window:                             Alt+y
+    
+    Window Focus:
+      - Up:                                  Alt+k
+      - Down:                                Alt+j
+    
+    Manage Window Size:
+      - Left/Right:                          Alt+h/Alt+l
+      - Inc/Dec:                             Alt+h/Alt+l
+      
+    Master/Stack:
+      - Inc:                                 Alt+Shift+i
+      - Dec:                                 Atl+Shift+d
+      
+    Move Stack:
+      - Up:                                  Alt+Shift+k
                                              Super+k
                                              
-   - Down:                                   Alt+Shift+j
+      - Down:                                Alt+Shift+j
                                              Super+j
-                        
- Zoom/NxtMaster:                             Alt+Enter
+                           
+    Zoom/NxtMaster:                          Alt+Enter
 
 Tag
 ---
