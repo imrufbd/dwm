@@ -64,9 +64,11 @@ static const Rule rules[] = {
 { "qutebrowser",         NULL,     NULL,  1 << 1,    0,          0,           0,        -1 },
 { "mpv",                 NULL,     NULL,  1 << 2,    1,                       1,        -1 },
 { "MPlayer",             NULL,     NULL,  1 << 2,    1,                       1,        -1 },
-{ "libreoffice-writer",  NULL,     NULL,  1 << 3,    0,                       0,        -1 },
 { NULL,		             "spterm", NULL,  SPTAG(0),	 1,			                        -1 },
 { "Gnote",               NULL,     NULL,  SPTAG(1),	 1,	                                -1 },
+{ "libreoffice-startcenter", NULL, NULL,  1 << 3,    0,                       0,        -1 },
+{ "soffice",             NULL,     NULL,  1 << 3,    0,                       0,        -1 },
+{ "libreoffice",         NULL,     NULL,  1 << 3,    0,                       0,        -1 },
 };
 
 /* layout(s) */
