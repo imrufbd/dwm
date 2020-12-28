@@ -100,7 +100,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { "st", NULL };
-static const char *fcmd[] = { "st", "-e", "nnn", NULL };
+static const char *fcmd[] = { "st", "-e", "nnn", "-d", NULL };
 static const char *fcmd2[] = { "pcmanfm", NULL };
 static const char *fcmd3[] = { "st", "-e", "lf", NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
@@ -191,6 +191,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_l,              spawn,          {.v = ipl } },
 	{ MODKEY|ShiftMask,             XK_m,              spawn,          CMD("st -e cmus") },
 	{ ShiftMask,                    XK_KP_Insert,      spawn,          CMD("clipmenu") }, 
+	{ MOD2,                         XK_u,              spawn,          CMD("clipmenu") }, 
     { 0,                     XF86XK_MonBrightnessUp,   spawn,          {.v = brinc } },
     { 0,                     XF86XK_MonBrightnessDown, spawn,          {.v = brdec } },
 	{ 0,                            XF86XK_Calculator, spawn,          CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
