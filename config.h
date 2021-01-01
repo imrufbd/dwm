@@ -8,30 +8,22 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
-static const char col_gray1[]       = "#011111"; /* border color #073642 #222222*/
+static const char col_gray1[]       = "#111111"; /* border color #011111 #073642 #222222*/
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#999999"; /* tag color status text color #eeeeee #bf616a*/
-static const char col_cyan[]        = "#0a0f14"; /* bar color #005577 #0a0f14*/
+static const char col_cyan[]        = "#111111"; /* bar color #005577 #0a0f14*/
 static const char col_black[]       = "#000000";
 static const char col_red[]         = "#ff0000";
 static const char col_yellow[]      = "#ffff00";
 static const char col_white[]       = "#ffffff";
 static const char col_y1[]          = "#bf616a";
 static const char col_y2[]          = "#02143f"; /* #fea63c */
-static const unsigned int baralpha = 0.8;
-static const unsigned int borderalpha = 0.8;
 
 static const char *colors[][13]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] =	 { col_gray4, col_gray1,  col_gray2 },
 	[SchemeSel]  =	 { col_y1, col_black,   col_cyan },
-};
-
-static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 typedef struct {
