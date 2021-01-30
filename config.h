@@ -92,7 +92,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { "st", NULL };
-static const char *fcmd[] = { "st", "-e", "nnn", "-d", NULL };
+static const char *fcmd[] = { "alacritty", "-e", "nnn", "-d", NULL };
 static const char *fcmd2[] = { "pcmanfm", NULL };
 static const char *fcmd3[] = { "st", "-e", "lf", NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
