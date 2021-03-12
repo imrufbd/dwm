@@ -39,7 +39,9 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "","","","" };
+static const char *tags[] = { "","","","","","","","","" };
+
+/* "", "", "", "", "", "", "", "", "", "", */
 
 /* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
 
@@ -193,7 +195,6 @@ static Key keys[] = {
 	{ 0,                            XK_Print,          spawn,          CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
 	{ ShiftMask,                    XK_Print,          spawn,          CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
 	{ ControlMask,                  XK_Print,          spawn,          CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
-	{ ControlMask,                  XK_i,             spawn,          CMD("st -n spf -g 110x18 -e nmtui") },
 };
 
 /* button definitions */
