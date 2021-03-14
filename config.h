@@ -1,5 +1,6 @@
 /* See LICENSE file for copyright and license details. */
-
+/* Constants */
+#define TERMINAL "st"
 
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
@@ -30,7 +31,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "110x18", NULL };
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
@@ -53,7 +54,7 @@ static const Rule rules[] = {
   /* class               instance  title  tags mask  isfloating  isterminal  noswallow  monitor */
 { "Gimp",                NULL,     NULL,  0,         1,          0,           0,        -1 },
 { "firefox",             NULL,     NULL,  1 << 1,    0,          0,          -1,        -1 },
-{ "st",                  NULL,     NULL,  0,         0,          1,          -1,        -1 },
+{ TERMINAL,                  NULL,     NULL,  0,         0,          1,          -1,        -1 },
 { NULL,                  "spf",    NULL,  0,         1,                                 -1 },
 { "qutebrowser",         NULL,     NULL,  1 << 1,    0,          0,           0,        -1 },
 { "mpv",                 NULL,     NULL,  1 << 2,    1,                       1,        -1 },
@@ -93,13 +94,13 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { "st", NULL };
-static const char *fcmd[] = { "st", "-e", "nnn", "-d", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
+static const char *fcmd[] = { TERMINAL, "-e", "nnn", "-dr", NULL };
 static const char *fcmd2[] = { "pcmanfm", NULL };
-static const char *fcmd3[] = { "st", "-e", "lf", NULL };
+static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
 static const char *bcmd2[] = { "firefox", NULL };
-static const char *bcmd3[] = { "st", "-e", "elinks", NULL };
+static const char *bcmd3[] = { TERMINAL, "-e", "elinks", NULL };
 static const char *dbang[] = { "dbang", NULL };
 static const char *dweb[] = { "dweb", NULL };
 static const char *dssr[] = { "dssr", NULL };
