@@ -54,12 +54,12 @@ static const Rule rules[] = {
   /* class               instance  title  tags mask  isfloating  isterminal  noswallow  monitor */
 { "Gimp",                NULL,     NULL,  0,         1,          0,           0,        -1 },
 { "firefox",             NULL,     NULL,  1 << 1,    0,          0,          -1,        -1 },
-{ TERMINAL,                  NULL,     NULL,  0,         0,          1,          -1,        -1 },
-{ NULL,                  "spf",    NULL,  0,         1,                                 -1 },
+{ TERMINAL,              NULL,     NULL,  0,         0,          1,          -1,        -1 },
 { "qutebrowser",         NULL,     NULL,  1 << 1,    0,          0,           0,        -1 },
 { "mpv",                 NULL,     NULL,  1 << 2,    1,                       1,        -1 },
 { "MPlayer",             NULL,     NULL,  1 << 2,    1,                       1,        -1 },
 { NULL,		             "spterm", NULL,  SPTAG(0),	 1,			                        -1 },
+{ NULL,		             "qtfp",   NULL,  0,	     1,			                        -1 },
 { "Gnote",               NULL,     NULL,  SPTAG(1),	 1,	                                -1 },
 { "libreoffice-startcenter", NULL, NULL,  1 << 3,    0,                       0,        -1 },
 { "soffice",             NULL,     NULL,  1 << 3,    0,                       0,        -1 },
@@ -95,7 +95,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
-static const char *fcmd[] = { TERMINAL, "-e", "nnn", "-dr", NULL };
+static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL };
 static const char *fcmd2[] = { "pcmanfm", NULL };
 static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
