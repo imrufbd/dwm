@@ -96,8 +96,6 @@ static const Layout layouts[] = {
 /* commands */
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL };
-static const char *fcmd2[] = { "pcmanfm", NULL };
-static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
 static const char *bcmd2[] = { "firefox", NULL };
 static const char *bcmd3[] = { TERMINAL, "-e", "elinks", "about://blank", NULL };
@@ -118,6 +116,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 /* static const char *rbang[] = { "rbang", NULL }; */
 /* static const char *roficmd[] = { "rofi", "-show", "combi", NULL }; */
+/* static const char *fcmd2[] = { "pcmanfm", NULL }; */
+/* static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL }; */
 
 #include <X11/XF86keysym.h>
 #include "movestack.c"
@@ -129,8 +129,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_semicolon,     spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_o,             spawn,          {.v = fcmd } },
-	{ MODKEY|ShiftMask,             XK_o,             spawn,          {.v = fcmd2 }},
-	{ MOD2,                         XK_o,             spawn,          {.v = fcmd3 } },
 	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
 	{ MODKEY,                       XK_n,             spawn,          {.v = bcmd3 } },
@@ -184,6 +182,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,              spawn,          {.v = ipr } },
 	{ MODKEY|ShiftMask,             XK_h,              spawn,          {.v = iph } },
 	{ MODKEY|ShiftMask,             XK_l,              spawn,          {.v = ipl } },
+	{ MOD2,                         XK_o,              spawn,          CMD("st -e tmux a || st -e tmux") },
 	{ MODKEY|ShiftMask,             XK_m,              spawn,          CMD("st -e cmus") },
 	{ ShiftMask,                    XK_KP_Insert,      spawn,          CMD("clipmenu") }, 
 	{ MOD2,                         XK_u,              spawn,          CMD("clipmenu") }, 
@@ -196,6 +195,9 @@ static Key keys[] = {
 	{ 0,                            XK_Print,          spawn,          CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
 	{ ShiftMask,                    XK_Print,          spawn,          CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
 	{ ControlMask,                  XK_Print,          spawn,          CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
+
+	/* { MODKEY|ShiftMask,             XK_o,             spawn,          {.v = fcmd2 }}, */
+	/* { MOD2,                         XK_o,             spawn,          {.v = fcmd3 } },*/
 };
 
 /* button definitions */
