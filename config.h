@@ -7,24 +7,21 @@ static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 20;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
+static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
-static const char norfg[]       = "#b2b2b2"; /* tag color status text color #999999 #bf616a */
-static const char norbg[]       = "#222222"; /* border color #011111 #111111 #073642 #222222*/
-static const char norbd[]       = "#444444";
-static const char selbg[]       = "#000000"; /* #000000 #005577*/
-static const char selfg[]       = "#eeeeee"; /* #eeeeee */
-static const char selbd[]       = "#770000"; /* bar color #111111 #005577 #0a0f14*/
-static const char col_1[]       = "#ff0000"; /* #ffff00 #ffffff #fea64c */
-static const char col_2[]       = "#02143f"; /* #282c34 */
-static const char col_3[]       = "#d7d7d7";
-static const unsigned int baralpha = 0xaa;
-static const unsigned int borderalpha = 0.5;
+static const char Normfg[]      = "#d79921"; /* layout indicator and status text color #ebcb8b #999999 #bf616a */
+static const char Normbg[]      = "#111111"; /* border color #011111 #111111 #073642 #222222*/
+static const char Normbd[]      = "#444444";
+static const char Selbg[]       = "#000000"; /* #000000 #005577*/
+static const char Selfg[]       = "#eeeeee"; /* tag and windwo name color #eeeeee */
+static const char Selbd[]       = "#770000"; /* bar color #111111 #005577 #0a0f14 #ff0000 #ffff00 #ffffff #fea64c #282c34 #d7d7d7 #02143f */
+static const unsigned int baralpha    = 0.9; /*  0xd0 */
+static const unsigned int borderalpha = 0.9; /*  OPAQUE */
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] =	 { norfg, norbg, norbd },
-	[SchemeSel]  =	 { selfg, selbg, selbd },
+	[SchemeNorm] =	 { Normfg, Normbg, Normbd },
+	[SchemeSel]  =	 { Selfg, Selbg, Selbd },
 };
 
 static const unsigned int alphas[][3]      = {
