@@ -8,7 +8,7 @@ static const unsigned int snap      = 20;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:bold:size=8:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "Comic Mono:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static const char Normfg[]      = "#ebcb8b"; /* layout indicator and status text color #d79921 #ebcb8b #999999 #bf616a */
 static const char Normbg[]      = "#111111"; /* border color #011111 #111111 #073642 #222222*/
 static const char Normbd[]      = "#444444";
@@ -167,6 +167,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,        focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,         tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,        tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_q,             moveplace,      {.ui = WIN_NW }},
+	{ MODKEY,                       XK_w,             moveplace,      {.ui = WIN_N  }},
+	{ MODKEY,                       XK_r,             moveplace,      {.ui = WIN_NE }},
+	{ MODKEY,                       XK_a,             moveplace,      {.ui = WIN_W  }},
+	{ MODKEY,                       XK_s,             moveplace,      {.ui = WIN_C  }},
+	{ MODKEY,                       XK_d,             moveplace,      {.ui = WIN_E  }},
+	{ MODKEY,                       XK_z,             moveplace,      {.ui = WIN_SW }},
+	{ MODKEY,                       XK_x,             moveplace,      {.ui = WIN_S  }},
+	{ MODKEY,                       XK_c,             moveplace,      {.ui = WIN_SE }},
     { MODKEY|ControlMask,           XK_l,             shiftview,      { .i = +1 } },
     { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
