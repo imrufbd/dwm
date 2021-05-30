@@ -36,10 +36,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
+const char *spcmd3[] = {"stardict", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"gnote",       spcmd2},
+	{"stardict",    spcmd3},
 };
 
 /* tagging */
@@ -67,6 +69,8 @@ static const Rule rules[] = {
 { "libreoffice-startcenter", NULL, NULL,  1 << 3,    0,                       0,        -1 },
 { "soffice",             NULL,     NULL,  1 << 3,    0,                       0,        -1 },
 { "libreoffice",         NULL,     NULL,  1 << 3,    0,                       0,        -1 },
+{ "Stardict",            NULL,     NULL,  SPTAG(2),  1,                       0,        -1 },
+/* { "Sxiv",                 NULL,    NULL,  0,         0,                       0,        -1 }, */
 };
 
 /* layout(s) */
@@ -140,6 +144,7 @@ static Key keys[] = {
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
+	{ MODKEY, 			            XK_w,             togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_b,             togglebar,      {0} },
 	{ MODKEY,                       XK_j,             focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,             focusstack,     {.i = -1 } },
@@ -156,7 +161,7 @@ static Key keys[] = {
 	{ ControlMask,                  XK_space,         view,           {0} },
 	{ MODKEY,                       XK_y,             killclient,     {0} },
 	{ MODKEY,                       XK_t,             setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,             setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_u,             setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,             setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_t,             setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,         setlayout,      {0} },
@@ -167,15 +172,29 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period,        focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,         tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,        tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_q,             moveplace,      {.ui = WIN_NW }},
-	{ MODKEY,                       XK_w,             moveplace,      {.ui = WIN_N  }},
-	{ MODKEY,                       XK_r,             moveplace,      {.ui = WIN_NE }},
-	{ MODKEY,                       XK_a,             moveplace,      {.ui = WIN_W  }},
-	{ MODKEY,                       XK_s,             moveplace,      {.ui = WIN_C  }},
-	{ MODKEY,                       XK_d,             moveplace,      {.ui = WIN_E  }},
-	{ MODKEY,                       XK_z,             moveplace,      {.ui = WIN_SW }},
-	{ MODKEY,                       XK_x,             moveplace,      {.ui = WIN_S  }},
-	{ MODKEY,                       XK_c,             moveplace,      {.ui = WIN_SE }},
+	{ MODKEY|ControlMask,           XK_z,             moveresize,     {.v = "0x 25y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_q,             moveresize,     {.v = "0x -25y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_f,             moveresize,     {.v = "25x 0y 0w 0h" } },
+	{ MODKEY|ControlMask,           XK_a,             moveresize,     {.v = "-25x 0y 0w 0h" } },
+	{ MODKEY|ControlMask|ShiftMask, XK_z,             moveresize,     {.v = "0x 0y 0w 25h" } },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,             moveresize,     {.v = "0x 0y 0w -25h" } },
+	{ MODKEY|ControlMask|ShiftMask, XK_f,             moveresize,     {.v = "0x 0y 25w 0h" } },
+	{ MODKEY|ControlMask|ShiftMask, XK_a,             moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY,                       XK_q,             moveresizeedge, {.v = "t"} },
+	{ MODKEY,                       XK_z,             moveresizeedge, {.v = "b"} },
+	{ MODKEY,                       XK_a,             moveresizeedge, {.v = "l"} },
+	{ MODKEY,                       XK_f,             moveresizeedge, {.v = "r"} },
+	{ MODKEY|ShiftMask,             XK_q,             moveresizeedge, {.v = "T"} },
+	{ MODKEY|ShiftMask,             XK_z,             moveresizeedge, {.v = "B"} },
+	{ MODKEY|ShiftMask,             XK_a,             moveresizeedge, {.v = "L"} },
+	{ MODKEY|ShiftMask,             XK_f,             moveresizeedge, {.v = "R"} },
+    { MODKEY,                       XK_s,             movethrow,      {.ui = DIR_C  }},
+/*
+    { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
+    { MODKEY,                       XK_z,             movethrow,      {.ui = DIR_S  }},
+    { MODKEY,                       XK_a,             movethrow,      {.ui = DIR_W  }},
+    { MODKEY,                       XK_g,             movethrow,      {.ui = DIR_E  }},
+*/
     { MODKEY|ControlMask,           XK_l,             shiftview,      { .i = +1 } },
     { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
 	TAGKEYS(                        XK_1,                      0)
