@@ -9,7 +9,7 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Comic Mono:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
-static const char Normfg[]      = "#ebcb8b"; /* layout indicator and status text color #d79921 #ebcb8b #999999 #bf616a */
+static const char Normfg[]      = "#bdaec1"; /* layout indicator and status text color #d79921 #ebcb8b #999999 #bf616a */
 static const char Normbg[]      = "#111111"; /* border color #011111 #111111 #073642 #222222*/
 static const char Normbd[]      = "#444444";
 static const char Selbg[]       = "#000000"; /* #000000 #005577*/
@@ -36,12 +36,14 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
-const char *spcmd3[] = {"stardict", NULL };
+const char *spcmd3[] = {"konsole", "--profile", "sdcv", NULL };
+/* const char *spcmd4[] = {"stardict", NULL }; */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"gnote",       spcmd2},
-	{"stardict",    spcmd3},
+	{"sdcv",        spcmd3},
+	/* {"stardict",    spcmd4}, */
 };
 
 /* tagging */
@@ -69,7 +71,8 @@ static const Rule rules[] = {
 { "libreoffice-startcenter", NULL, NULL,  1 << 3,    0,                       0,        -1 },
 { "soffice",             NULL,     NULL,  1 << 3,    0,                       0,        -1 },
 { "libreoffice",         NULL,     NULL,  1 << 3,    0,                       0,        -1 },
-{ "Stardict",            NULL,     NULL,  SPTAG(2),  1,                       0,        -1 },
+{ "konsole",             NULL,     NULL,  SPTAG(2),  1,                       0,        -1 },
+/* { "Stardict",            NULL,     NULL,  SPTAG(3),  1,                       0,        -1 }, */
 /* { "Sxiv",                 NULL,    NULL,  0,         0,                       0,        -1 }, */
 };
 
@@ -191,7 +194,7 @@ static Key keys[] = {
     { MODKEY,                       XK_s,             movethrow,      {.ui = DIR_C  }},
 /*
     { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
-    { MODKEY,                       XK_z,             movethrow,      {.ui = DIR_S  }},
+    { MODKEY,                       KP_2,             movethrow,      {.ui = DIR_S  }},
     { MODKEY,                       XK_a,             movethrow,      {.ui = DIR_W  }},
     { MODKEY,                       XK_g,             movethrow,      {.ui = DIR_E  }},
 */
