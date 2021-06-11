@@ -1,0 +1,41 @@
+--- dwm.c.orig	2013-03-20 00:12:04.259752714 +0100
++++ b/dwm-6.0/dwm.c	2013-03-20 00:14:27.236417119 +0100
+@@ -863,6 +863,7 @@
+ 	char clock[38];
+ 	unsigned int i, occ = 0, urg = 0;
+ 	unsigned long *col;
++	unsigned int a = 0, s = 0;
+ 	Client *c;
+ 
+ 	for(c = m->clients; c; c = c->next) {
+@@ -879,6 +880,15 @@
+ 		drawtext(tags[i].name, col, True);
+ 		dc.x += dc.w;
+ 	}
++	if(m->lt[m->sellt]->arrange == monocle) {
++		for(a = 0, s = 0, c= nexttiled(m->clients); c; c= nexttiled(c->next), a++)
++			if(c == m->stack)
++				s = a;
++		if(!s && a)
++			s = a;
++		if(s && a)
++			snprintf(m->ltsymbol, sizeof m->ltsymbol, "%d/%d", s, a);
++	}
+ 	dc.w = blw = TEXTW(m->ltsymbol);
+ 	drawtext(m->ltsymbol, dc.colors[0], True);
+ 	dc.x += dc.w;
+@@ -1347,14 +1357,8 @@
+ 
+ void
+ monocle(Monitor *m) {
+-	unsigned int n = 0;
+ 	Client *c;
+ 
+-	for(c = m->clients; c; c = c->next)
+-		if(ISVISIBLE(c))
+-			n++;
+-	if(n > 0) /* override layout symbol */
+-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
+ 	for(c = nexttiled(m->clients); c; c = nexttiled(c->next))
+ 		resize(c, m->wx - c->bw, m->wy, m->ww, m->wh, False);
+ }
