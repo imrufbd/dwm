@@ -37,13 +37,11 @@ typedef struct {
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
 const char *spcmd3[] = {"konsole", "--profile", "sdcv", NULL };
-/* const char *spcmd4[] = {"stardict", NULL }; */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"gnote",       spcmd2},
 	{"sdcv",        spcmd3},
-	/* {"stardict",    spcmd4}, */
 };
 
 /* tagging */
@@ -147,7 +145,7 @@ static Key keys[] = {
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
 	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
-	{ MODKEY, 			            XK_w,             togglescratch,  {.ui = 2 } },
+	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_b,             togglebar,      {0} },
 	{ MODKEY,                       XK_j,             focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,             focusstack,     {.i = -1 } },
