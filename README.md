@@ -35,13 +35,35 @@ Window
       - Dec:                                 Atl+Shift+d
       
     Move Stack:
-      - Up:                                  Alt+Shift+k
-                                             Super+k
-                                             
-      - Down:                                Alt+Shift+j
-                                             Super+j
+      - Up:                                  Super+k
+      - Down:                                Super+j
                            
     Zoom/NxtMaster:                          Alt+Enter
+    
+    Center Float:                            Alt+s
+    Move Float:
+      - Up:                                  Alt+q
+      - Down:                                Alt+z
+      - Left:                                Alt+a
+      - Right:                               Alt+f
+    Resize Float:
+      - Up:                                  Alt+Shift+q
+      - Down:                                Alt+Shift+z
+      - Left:                                Alt+Shift+a
+      - Right:                               Alt+Shift+f
+    Move Float To Edge:
+      - Up:                                  Alt+Ctrl+q
+      - Down:                                Alt+Ctrl+z
+      - Left:                                Alt+Ctrl+a
+      - Right:                               Alt+Ctrl+f
+    Resize Float To Edge:
+      - Up:                                  Alt+Ctrl+Shift+q
+      - Down:                                Alt+Ctrl+Shift+z
+      - Left:                                Alt+Ctrl+Shift+a
+      - Right:                               Alt+Ctrl+Shift+f
+        
+    Move Float Mouse:                        Alt+Mouse_Left
+    Resize Float Mouse:                      Alt+Mouse_Right
 
 Tag
 ---
@@ -49,13 +71,13 @@ Tag
     Switch Tag:                              Alt+[1-0]
     
     Switch Last Tag:                         Alt+Tab
-                                             Control+Space
+                                             Ctrl+Space
      
-    Next Tag:                                Alt+Control+l
-    Previous Tag:                            Alt+Control+h
+    Next Tag:                                Alt+Ctrl+l
+    Previous Tag:                            Alt+Ctrl+h
     
     Manage Tag:
-        - Tag Another To Current:            Alt+Control+Tag Number
+        - Tag Another To Current:            Alt+Ctrl+Tag Number
         - View All Tag And And Open Windows: Alt+0
         - Tag Current To All:                Alt+Shift+0
 
@@ -64,12 +86,11 @@ Layouts
 
     Tile:                                    Alt+t
     Tile(Bstack):                            Alt+Shift+t
-    Float:                                   Alt+f
+    Float:                                   Alt+u
     Monocle:                                 Alt+m
     Toggle Layout:                           Alt+Space
     Toggle Float:                            Alt+Shift+Space
-    Move Float:                              Alt+Mouse_Left
-    Resize Float:                            Alt+Mouse_Right
+    
 
 System
 ---
@@ -100,6 +121,7 @@ App Bindings
     Scratchpad:
         - dropdown:                          Super+/
         - gnote:                             Super+n
+        - sdcv:                              Super+m
 
     dmenu: 
       - dmenu:                               Alt+;
@@ -108,7 +130,7 @@ App Bindings
       - dssr:                                Super+p
       - calc:                                Fn+Keypad_Enter
       - powermenu:                           Alt+Shift+x
-      - clipmenu:                            Shift+Insert
+      - clipmenu:                            Super+u
     
     Files:
       - nnn:                                 Alt+o
@@ -126,4 +148,4 @@ App Bindings
     Screenshot:
       - FullScreen:                          prtsc
       - ActiveWindow:                        Shift+prtsc
-      - Selection:                           Control+prtsc
+      - Selection:                           Ctrl+prtsc
