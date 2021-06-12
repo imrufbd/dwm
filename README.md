@@ -40,27 +40,27 @@ Window
                            
     Zoom/NxtMaster:                          Alt+Enter
     
-    Center Float:                            Alt+s
+    Center Float:                            Alt+KP_Add
     Move Float:
-      - Up:                                  Alt+q
-      - Down:                                Alt+z
-      - Left:                                Alt+a
-      - Right:                               Alt+f
+      - Up:                                  Alt+KP_Multiply
+      - Down:                                Alt+KP_Divide
+      - Left:                                Alt+KP_Home
+      - Right:                               Alt+KP_Minus
     Resize Float:
-      - Up:                                  Alt+Shift+q
-      - Down:                                Alt+Shift+z
-      - Left:                                Alt+Shift+a
-      - Right:                               Alt+Shift+f
+      - Up:                                  Alt+Shift+KP_Multiply
+      - Down:                                Alt+Shift+KP_Divide
+      - Left:                                Alt+Shift+KP_Home
+      - Right:                               Alt+Shift+KP_Minus
     Move Float To Edge:
-      - Up:                                  Alt+Ctrl+q
-      - Down:                                Alt+Ctrl+z
-      - Left:                                Alt+Ctrl+a
-      - Right:                               Alt+Ctrl+f
+      - Up:                                  Alt+Ctrl+KP_Multiply
+      - Down:                                Alt+Ctrl+KP_Divide
+      - Left:                                Alt+Ctrl+KP_Home
+      - Right:                               Alt+Ctrl+KP_Minus
     Resize Float To Edge:
-      - Up:                                  Alt+Ctrl+Shift+q
-      - Down:                                Alt+Ctrl+Shift+z
-      - Left:                                Alt+Ctrl+Shift+a
-      - Right:                               Alt+Ctrl+Shift+f
+      - Up:                                  Alt+Ctrl+Shift+KP_Multiply
+      - Down:                                Alt+Ctrl+Shift+KP_Divide
+      - Left:                                Alt+Ctrl+Shift+KP_Home
+      - Right:                               Alt+Ctrl+Shift+KP_Minus
         
     Move Float Mouse:                        Alt+Mouse_Left
     Resize Float Mouse:                      Alt+Mouse_Right
@@ -86,7 +86,7 @@ Layouts
 
     Tile:                                    Alt+t
     Tile(Bstack):                            Alt+Shift+t
-    Float:                                   Alt+u
+    Float:                                   Alt+f
     Monocle:                                 Alt+m
     Toggle Layout:                           Alt+Space
     Toggle Float:                            Alt+Shift+Space

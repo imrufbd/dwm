@@ -36,7 +36,7 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
-const char *spcmd3[] = {"konsole", "--profile", "sdcv", NULL }; /* konsole can render devnagri complex script font perfectly  */
+const char *spcmd3[] = {"konsole", "--hide-menubar", "--profile", "sdcv", NULL }; /* konsole can render devnagri complex script font perfectly  */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -133,20 +133,10 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 
 
 static Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_semicolon,     spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_o,             spawn,          {.v = fcmd } },
-	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
-	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
-	{ MODKEY,                       XK_n,             spawn,          {.v = bcmd3 } },
-	{ MODKEY,                       XK_p,             spawn,          {.v = dweb } },
-	{ MOD2,                         XK_p,             spawn,          {.v = dssr } },
-	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
-	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
-	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
-	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 2 } },
+/* bar */
 	{ MODKEY,                       XK_b,             togglebar,      {0} },
+/* window */
+	{ MODKEY,                       XK_y,             killclient,     {0} },
 	{ MODKEY,                       XK_j,             focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,             focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_i,             incnmaster,     {.i = +1 } },
@@ -156,76 +146,96 @@ static Key keys[] = {
 	{ MOD2,                         XK_j,             movestack,      {.i = +1 } },
 	{ MOD2,                         XK_k,             movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_Return,        zoom,           {0} },
-	{ MODKEY,                       XK_Tab,           view,           {0} },
-	{ ControlMask,                  XK_space,         view,           {0} },
-	{ MODKEY,                       XK_y,             killclient,     {0} },
+/* layout */
 	{ MODKEY,                       XK_t,             setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_u,             setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_f,             setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,             setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_t,             setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,         setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,         togglefloating, {0} },
 	{ MODKEY,                       XK_0,             view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,             tag,            {.ui = ~0 } },
+/* float management */
+	{ MODKEY,                       XK_KP_Divide,         moveresize,     {.v = "0x 25y 0w 0h" } },
+	{ MODKEY,                       XK_KP_Multiply,          moveresize,     {.v = "0x -25y 0w 0h" } },
+	{ MODKEY,                       XK_KP_Subtract,           moveresize,     {.v = "25x 0y 0w 0h" } },
+	{ MODKEY,                       XK_KP_Home,          moveresize,     {.v = "-25x 0y 0w 0h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Divide,         moveresize,     {.v = "0x 0y 0w 25h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Multiply,          moveresize,     {.v = "0x 0y 0w -25h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Subtract,           moveresize,     {.v = "0x 0y 25w 0h" } },
+	{ MODKEY|ShiftMask,             XK_KP_Home,          moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ControlMask,           XK_KP_Divide,         moveresizeedge, {.v = "b"} },
+	{ MODKEY|ControlMask,           XK_KP_Multiply,          moveresizeedge, {.v = "t"} },
+	{ MODKEY|ControlMask,           XK_KP_Subtract,           moveresizeedge, {.v = "r"} },
+	{ MODKEY|ControlMask,           XK_KP_Home,          moveresizeedge, {.v = "l"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Divide,         moveresizeedge, {.v = "B"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Multiply,          moveresizeedge, {.v = "T"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Subtract,           moveresizeedge, {.v = "R"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_KP_Home,          moveresizeedge, {.v = "L"} },
+    { MODKEY,                       XK_KP_Add,        movethrow,      {.ui = DIR_C  }},
+    /* { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
+    { MODKEY,                       KP_2,             movethrow,      {.ui = DIR_S  }},
+    { MODKEY,                       XK_a,             movethrow,      {.ui = DIR_W  }},
+    { MODKEY,                       XK_g,             movethrow,      {.ui = DIR_E  }}, */
+/* monitor */
 	{ MODKEY,                       XK_comma,         focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period,        focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,         tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,        tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_z,             moveresize,     {.v = "0x 25y 0w 0h" } },
-	{ MODKEY,                       XK_q,             moveresize,     {.v = "0x -25y 0w 0h" } },
-	{ MODKEY,                       XK_f,             moveresize,     {.v = "25x 0y 0w 0h" } },
-	{ MODKEY,                       XK_a,             moveresize,     {.v = "-25x 0y 0w 0h" } },
-	{ MODKEY|ShiftMask,             XK_z,             moveresize,     {.v = "0x 0y 0w 25h" } },
-	{ MODKEY|ShiftMask,             XK_q,             moveresize,     {.v = "0x 0y 0w -25h" } },
-	{ MODKEY|ShiftMask,             XK_f,             moveresize,     {.v = "0x 0y 25w 0h" } },
-	{ MODKEY|ShiftMask,             XK_a,             moveresize,     {.v = "0x 0y -25w 0h" } },
-	{ MODKEY|ControlMask,           XK_q,             moveresizeedge, {.v = "t"} },
-	{ MODKEY|ControlMask,           XK_z,             moveresizeedge, {.v = "b"} },
-	{ MODKEY|ControlMask,           XK_a,             moveresizeedge, {.v = "l"} },
-	{ MODKEY|ControlMask,           XK_f,             moveresizeedge, {.v = "r"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_q,             moveresizeedge, {.v = "T"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_z,             moveresizeedge, {.v = "B"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_a,             moveresizeedge, {.v = "L"} },
-	{ MODKEY|ControlMask|ShiftMask, XK_f,             moveresizeedge, {.v = "R"} },
-    { MODKEY,                       XK_s,             movethrow,      {.ui = DIR_C  }},
-/*
-    { MODKEY,                       XK_q,             movethrow,      {.ui = DIR_N  }},
-    { MODKEY,                       KP_2,             movethrow,      {.ui = DIR_S  }},
-    { MODKEY,                       XK_a,             movethrow,      {.ui = DIR_W  }},
-    { MODKEY,                       XK_g,             movethrow,      {.ui = DIR_E  }},
-*/
+/* tag */
+	TAGKEYS(                        XK_1,                             0)
+	TAGKEYS(                        XK_2,                             1)
+	TAGKEYS(                        XK_3,                             2)
+	TAGKEYS(                        XK_4,                             3)
+	TAGKEYS(                        XK_5,                             4)
+	TAGKEYS(                        XK_6,                             5)
+	TAGKEYS(                        XK_7,                             6)
+	TAGKEYS(                        XK_8,                             7)
+	TAGKEYS(                        XK_9,                             8)
+	{ MODKEY,                       XK_Tab,           view,           {0} },
+	{ ControlMask,                  XK_space,         view,           {0} },
     { MODKEY|ControlMask,           XK_l,             shiftview,      { .i = +1 } },
     { MODKEY|ControlMask,           XK_h,             shiftview,      { .i = -1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_e,              quit,           {0} },
-	{ MOD2|ShiftMask,               XK_e,              quit,           {1} }, 
-	{ MODKEY|ShiftMask,             XK_x,              spawn,          {.v = pmenu } },
-	{ MODKEY|ShiftMask,             XK_s,              spawn,          {.v = ips } },
-	{ MODKEY|ShiftMask,             XK_r,              spawn,          {.v = ipr } },
-	{ MODKEY|ShiftMask,             XK_h,              spawn,          {.v = iph } },
-	{ MODKEY|ShiftMask,             XK_l,              spawn,          {.v = ipl } },
-	{ MODKEY|ShiftMask,             XK_m,              spawn,          CMD("st -e cmus") },
-	{ MOD2,                         XK_u,              spawn,          CMD("clipmenu") }, 
-    { 0,                     XF86XK_MonBrightnessUp,   spawn,          {.v = brinc } },
-    { 0,                     XF86XK_MonBrightnessDown, spawn,          {.v = brdec } },
-	{ 0,                            XF86XK_Calculator, spawn,          CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
-    { 0,                     XF86XK_AudioLowerVolume,  spawn,          {.v = downvol } },
-    { 0,                     XF86XK_AudioMute,         spawn,          {.v = mutevol } },
-    { 0,                     XF86XK_AudioRaiseVolume,  spawn,          {.v = upvol   } },
-	{ 0,                            XK_Print,          spawn,          CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
-	{ ShiftMask,                    XK_Print,          spawn,          CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
-	{ ControlMask,                  XK_Print,          spawn,          CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
+/* power */
+	{ MODKEY|ShiftMask,             XK_e,              quit,          {0} },
+	{ MOD2|ShiftMask,               XK_e,              quit,          {1} }, 
+	{ MODKEY|ShiftMask,             XK_x,              spawn,         {.v = pmenu } },
+	{ MODKEY|ShiftMask,             XK_s,              spawn,         {.v = ips } },
+	{ MODKEY|ShiftMask,             XK_r,              spawn,         {.v = ipr } },
+	{ MODKEY|ShiftMask,             XK_h,              spawn,         {.v = iph } },
+	{ MODKEY|ShiftMask,             XK_l,              spawn,         {.v = ipl } },
+/* terminal */
+	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
+/* files */
+	{ MODKEY,                       XK_o,             spawn,          {.v = fcmd } },
+/* browsers */
+	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
+	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
+	{ MODKEY,                       XK_n,             spawn,          {.v = bcmd3 } },
+/* menus */
+	{ MODKEY,                       XK_semicolon,     spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_p,             spawn,          {.v = dweb } },
+	{ MOD2,                         XK_p,             spawn,          {.v = dssr } },
+	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
+/* scratch pads */
+	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
+	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
+	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 2 } },
+/* exec cmd */
+	{ MODKEY|ShiftMask,             XK_m,              spawn,         CMD("st -e cmus") },
+	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
+	{ 0,                            XF86XK_Calculator, spawn,         CMD("= --dmenu=dmenu -- -l 3 -c") }, /* menu-calc script */
+/* media keys */
+    { 0,                     XF86XK_MonBrightnessUp,   spawn,         {.v = brinc } },
+    { 0,                     XF86XK_MonBrightnessDown, spawn,         {.v = brdec } },
+    { 0,                     XF86XK_AudioLowerVolume,  spawn,         {.v = downvol } },
+    { 0,                     XF86XK_AudioMute,         spawn,         {.v = mutevol } },
+    { 0,                     XF86XK_AudioRaiseVolume,  spawn,         {.v = upvol   } },
+/* screen shots */
+    { 0,                     XK_Print,                 spawn,   CMD("maim ~/Pictures/ss/$(date +%d%h%T).png") },
+    { ShiftMask,             XK_Print,                 spawn,   CMD("maim -i $(xdotool getactivewindow) ~/Pictures/ss/$(date +%d%h%T).png") },
+    { ControlMask,           XK_Print,                 spawn,   CMD("maim -s ~/Pictures/ss/$(date +%d%h%T).png") },
 
-	/* { MODKEY|ShiftMask,             XK_o,             spawn,          {.v = fcmd2 }}, */
-	/* { MOD2,                         XK_o,             spawn,          {.v = fcmd3 } },*/
 };
 
 /* button definitions */
