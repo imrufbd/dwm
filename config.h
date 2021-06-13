@@ -36,7 +36,7 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
 const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
-const char *spcmd3[] = {"konsole", "--hide-menubar", "--profile", "sdcv", NULL }; /* konsole can render devnagri complex script font perfectly  */
+const char *spcmd3[] = {"konsole", "--profile", "sdcv", NULL }; /* konsole can render devnagri complex script font perfectly  */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
