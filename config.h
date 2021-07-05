@@ -8,7 +8,7 @@ static const unsigned int snap      = 20;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Comic Mono:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+static const char *fonts[]          = { "monospace:bold:pixelsize=12:antialias=true:autohint=true", "UbuntuMono Nerd Font:size=10:antialias=true:autohint=true", "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
 static const char Normfg[]      = "#bdaec1"; /* layout indicator and status text color #d79921 #ebcb8b #999999 #bf616a */
 static const char Normbg[]      = "#111111"; /* border color #011111 #111111 #073642 #222222*/
 static const char Normbd[]      = "#444444";
@@ -35,12 +35,12 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
-const char *spcmd2[] = {"gnote", "--open-note=mynotes", NULL };
-const char *spcmd3[] = {"konsole", "--profile", "sdcv", NULL }; /* konsole can render devnagri complex script font perfectly  */
+const char *spcmd2[] = {"kate", "-s", "notes", NULL };
+const char *spcmd3[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"gnote",       spcmd2},
+	{"kate",        spcmd2},
 	{"sdcv",        spcmd3},
 };
 
@@ -56,22 +56,21 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-  /* class               instance  title  tags mask  isfloating  isterminal  noswallow  monitor */
-{ "Gimp",                NULL,     NULL,  0,         1,          0,           0,        -1 },
-{ "firefox",             NULL,     NULL,  1 << 1,    0,          0,          -1,        -1 },
-{ TERMINAL,              NULL,     NULL,  0,         0,          1,          -1,        -1 },
-{ "qutebrowser",         NULL,     NULL,  1 << 1,    0,          0,           0,        -1 },
-{ "mpv",                 NULL,     NULL,  1 << 2,    1,                       1,        -1 },
-{ "MPlayer",             NULL,     NULL,  1 << 2,    1,                       1,        -1 },
-{ NULL,		             "spterm", NULL,  SPTAG(0),	 1,			                        -1 },
-{ NULL,		             "qtfp",   NULL,  0,	     1,			                        -1 },
-{ "Gnote",               NULL,     NULL,  SPTAG(1),	 1,	                                -1 },
-{ "libreoffice-startcenter", NULL, NULL,  1 << 3,    0,                       0,        -1 },
-{ "soffice",             NULL,     NULL,  1 << 3,    0,                       0,        -1 },
-{ "libreoffice",         NULL,     NULL,  1 << 3,    0,                       0,        -1 },
-{ "konsole",             NULL,     NULL,  SPTAG(2),  1,                       0,        -1 },
-/* { "Stardict",            NULL,     NULL,  SPTAG(3),  1,                       0,        -1 }, */
-/* { "Sxiv",                 NULL,    NULL,  0,         0,                       0,        -1 }, */
+  /* class                   instance  title               tags mask  isfloating  isterminal  noswallow  monitor */
+{ TERMINAL,                  NULL,     NULL,               0,         0,          1,          -1,        -1 },
+{ "Gimp",                    NULL,     NULL,               0,         1,          0,           0,        -1 },
+{ "firefox",                 NULL,     NULL,               1 << 1,    0,          0,          -1,        -1 },
+{ "qutebrowser",             NULL,     NULL,               1 << 1,    0,          0,           0,        -1 },
+{ NULL,		                 "qtfp",   NULL,               0,	      1,			                     -1 },
+{ "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
+{ NULL,		                 "spterm", NULL,               SPTAG(0),  1,			                     -1 },
+{ "kate",                    NULL,     "notes: notes.md ", SPTAG(1),  1,	                             -1 },
+{ "konsole",                 NULL,     NULL,               SPTAG(2),  1,                       0,        -1 },
+{ "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
+{ "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+{ "soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
+{ "libreoffice-startcenter", NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 };
 
 /* layout(s) */
@@ -135,6 +134,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 static Key keys[] = {
 /* bar */
 	{ MODKEY,                       XK_b,             togglebar,      {0} },
+	{ ControlMask,                  XK_semicolon,     spawn,          CMD("bfix") },
 /* window */
 	{ MODKEY,                       XK_y,             killclient,     {0} },
 	{ MODKEY,                       XK_j,             focusstack,     {.i = +1 } },
