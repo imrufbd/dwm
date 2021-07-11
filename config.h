@@ -35,13 +35,15 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
-const char *spcmd2[] = {"kate", "-s", "notes", NULL };
-const char *spcmd3[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
+const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "148x28", "-e", "nnn_tmux", NULL };
+const char *spcmd3[] = {"kate", "-s", "notes", NULL };
+const char *spcmd4[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
-	{"kate",        spcmd2},
-	{"sdcv",        spcmd3},
+	{"nnn",         spcmd2},
+	{"kate",        spcmd3},
+	{"sdcv",        spcmd4},
 };
 
 /* tagging */
@@ -65,8 +67,9 @@ static const Rule rules[] = {
 { "mpv",                     NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { "MPlayer",                 NULL,     NULL,               1 << 2,    1,                       1,        -1 },
 { NULL,		                 "spterm", NULL,               SPTAG(0),  1,			                     -1 },
-{ "kate",                    NULL,     "notes: notes.md ", SPTAG(1),  1,	                             -1 },
-{ "konsole",                 NULL,     NULL,               SPTAG(2),  1,                       0,        -1 },
+{ NULL,		                 "nnn",    NULL,               SPTAG(1),  1,			                     -1 },
+{ "kate",                    NULL,     "notes: notes.md ", SPTAG(2),  1,	                             -1 },
+{ "konsole",                 NULL,     NULL,               SPTAG(3),  1,                       0,        -1 },
 { "kile",                    NULL,     NULL,               1 << 3,    0,	                             -1 },
 { "libreoffice",             NULL,     NULL,               1 << 3,    0,                       0,        -1 },
 { "soffice",                 NULL,     NULL,               1 << 3,    0,                       0,        -1 },
@@ -101,8 +104,8 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL };
+static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
 static const char *bcmd2[] = { "firefox", NULL };
 static const char *bcmd3[] = { TERMINAL, "-e", "elinks", "about://blank", NULL };
@@ -134,7 +137,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 static Key keys[] = {
 /* bar */
 	{ MODKEY,                       XK_b,             togglebar,      {0} },
-	{ ControlMask,                  XK_semicolon,     spawn,          CMD("bfix") },
+	{ ControlMask,                  XK_semicolon,     spawn,          CMD("tbar") },
 /* window */
 	{ MODKEY,                       XK_y,             killclient,     {0} },
 	{ MODKEY,                       XK_j,             focusstack,     {.i = +1 } },
@@ -207,7 +210,7 @@ static Key keys[] = {
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
 /* files */
-	{ MODKEY,                       XK_o,             spawn,          {.v = fcmd } },
+	{ MOD2,                         XK_o,             spawn,          {.v = fcmd } },
 /* browsers */
 	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
@@ -219,8 +222,9 @@ static Key keys[] = {
 	{ MOD2,                         XK_semicolon,     spawn,          {.v = dbang } },
 /* scratch pads */
 	{ MOD2,                         XK_slash,         togglescratch,  {.ui = 0 } },
-	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 1 } },
-	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 2 } },
+	{ MODKEY, 			            XK_o,             togglescratch,  {.ui = 1 } },
+	{ MOD2, 			            XK_n,             togglescratch,  {.ui = 2 } },
+	{ MOD2, 			            XK_m,             togglescratch,  {.ui = 3 } },
 /* exec cmd */
 	{ MODKEY|ShiftMask,             XK_m,              spawn,         CMD("st -e cmus") },
 	{ MOD2,                         XK_u,              spawn,         CMD("clipmenu") }, 
