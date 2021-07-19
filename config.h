@@ -35,7 +35,7 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "110x18", NULL };
-const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "148x28", "-e", "nnn_tmux", NULL };
+const char *spcmd2[] = {TERMINAL, "-n", "nnn", "-g", "130x22", "-e", "nnn_tmux", NULL };
 const char *spcmd3[] = {"kate", "-s", "notes", NULL };
 const char *spcmd4[] = {"konsole", "--profile", "sol", NULL }; /* konsole can render devnagri complex script font perfectly  */
 static Sp scratchpads[] = {
@@ -104,7 +104,6 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL };
 static const char *termcmd[]  = { TERMINAL, NULL };
 static const char *bcmd[] = { "qutebrowser", NULL };
 static const char *bcmd2[] = { "firefox", NULL };
@@ -126,6 +125,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-p", ":>_", NULL };
 /* static const char *rbang[] = { "rbang", NULL }; */
 /* static const char *roficmd[] = { "rofi", "-show", "combi", NULL }; */
+/* static const char *fcmd[] = { TERMINAL, "-e", "nnn", NULL }; */
 /* static const char *fcmd2[] = { "pcmanfm", NULL }; */
 /* static const char *fcmd3[] = { TERMINAL, "-e", "lf", NULL }; */
 
@@ -210,7 +210,7 @@ static Key keys[] = {
 /* terminal */
 	{ MODKEY,                       XK_slash,         spawn,          {.v = termcmd } },
 /* files */
-	{ MOD2,                         XK_o,             spawn,          {.v = fcmd } },
+	{ MOD2, 			            XK_o,             togglescratch,  {.ui = 1 } },
 /* browsers */
 	{ MODKEY,                       XK_i,             spawn,          {.v = bcmd } },
 	{ MOD2,                         XK_i,             spawn,          {.v = bcmd2 } },
